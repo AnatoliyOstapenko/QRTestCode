@@ -48,6 +48,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelBarButton" destination="zxh-QC-0AX" id="WQh-B0-sRm"/>
                         <outlet property="startVideoButton" destination="FcT-e7-BEu" id="CTw-aB-8Cg"/>
                     </connections>
                 </viewController>

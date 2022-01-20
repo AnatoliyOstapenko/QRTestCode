@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     let session = AVCaptureSession() // Set session
     
     @IBOutlet weak var startVideoButton: UIButton!
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startVideoButton.layer.cornerRadius = 25.0
-        
+        cancelBarButton.isEnabled = false
         
         setupVideo()
     }
@@ -50,6 +51,7 @@ class ViewController: UIViewController {
     
     
     func startVideo() {
+        cancelBarButton.isEnabled = true
         view.layer.addSublayer(video)
         session.startRunning()
         
@@ -67,6 +69,7 @@ class ViewController: UIViewController {
     
     @IBAction func cancelBarButtonPressed(_ sender: UIBarButtonItem) {
         stopVideo()
+        cancelBarButton.isEnabled = false
 
     }
     
