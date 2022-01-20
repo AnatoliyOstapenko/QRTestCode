@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         startVideoButton.layer.cornerRadius = 25.0
         
+        
         setupVideo()
     }
     
@@ -53,10 +54,20 @@ class ViewController: UIViewController {
         session.startRunning()
         
     }
+    
+    func stopVideo() {
+        view.layer.sublayers?.removeLast() // escape from video screen
+        session.stopRunning() // stop session
+    }
 
     @IBAction func startVideoButtonPressed(_ sender: UIButton) {
-        
         startVideo()
+    }
+  
+    
+    @IBAction func cancelBarButtonPressed(_ sender: UIBarButtonItem) {
+        stopVideo()
+
     }
     
 }
@@ -85,11 +96,7 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
                     // Copy url string to use everywhere
                     UIPasteboard.general.string = object.stringValue
                     
-                    // escape from video screen
-                    self.view.layer.sublayers?.removeLast()
-                    
-                    // stop session
-                    self.session.stopRunning()
+                    self.stopVideo()
                 }
                 alert.addAction(goTo)
                 alert.addAction(copy)
