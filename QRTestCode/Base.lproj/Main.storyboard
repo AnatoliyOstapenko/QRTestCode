@@ -42,6 +42,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5Ee-X8-4yg">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zxh-QC-0AX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBarButtonPressed:" destination="BYZ-38-t0r" id="U7e-2E-L6S"/>
                             </connections>
@@ -64,6 +65,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6gX-Xe-cgc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemGray2Color"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

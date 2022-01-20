@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         startVideoButton.layer.cornerRadius = 25.0
         cancelBarButton.isEnabled = false
-        
+ 
         setupVideo()
     }
     
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     
     
     func startVideo() {
-        cancelBarButton.isEnabled = true
+        
         view.layer.addSublayer(video)
         session.startRunning()
         
@@ -63,13 +63,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startVideoButtonPressed(_ sender: UIButton) {
+        cancelBarButton.isEnabled = true
         startVideo()
+        
     }
   
     
     @IBAction func cancelBarButtonPressed(_ sender: UIBarButtonItem) {
-        stopVideo()
         cancelBarButton.isEnabled = false
+        stopVideo()
+        
 
     }
     
