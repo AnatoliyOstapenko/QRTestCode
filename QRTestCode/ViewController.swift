@@ -38,6 +38,10 @@ class ViewController: UIViewController {
         let output = AVCaptureMetadataOutput()
         session.addOutput(output)
         
+        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+        
+        
         // set video
         video = AVCaptureVideoPreviewLayer(session: session)
         video.frame = view.layer.bounds // set view bounds up to total screen
@@ -55,5 +59,12 @@ class ViewController: UIViewController {
         startVideo()
     }
     
+}
+
+// MARK:- AVCaptureMetadataOutputObjectsDelegate Reading QR Code Method
+extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    
+    }
 }
 
